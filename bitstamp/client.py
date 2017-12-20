@@ -310,6 +310,14 @@ class Trading(Public):
         url = self._construct_url("buy/", base, quote)
         return self._post(url, data=data, return_json=True, version=2)
 
+    def buy_cash_limit_order(self, amount, price, base="bch", quote="usd"):
+        """
+        Order to buy amount of bitcoins for specified price.
+        """
+        data = {'amount': amount, 'price': price}
+        url = self._construct_url("buy/", base, quote)
+        return self._post(url, data=data, return_json=True, version=2)
+
     def buy_market_order(self, amount, base="btc", quote="usd"):
         """
         Order to buy amount of bitcoins for market price.
